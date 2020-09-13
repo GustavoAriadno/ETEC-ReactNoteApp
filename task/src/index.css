@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@0,100;0,300;1,500;1,700;1,900&display=swap'); */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root {
+	--font-color:#d3d3d3;
+}
+
+a {
+	color: var(--font-color);
+	text-decoration: none;
+}
+
+body {
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+	color: var(--font-color);
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
+}
+
+body {
+	background: #1f1f1f;
+}
+
+h1 {
+	color: #ffffff;
+	font-weight: bolder;
+	font-size: 2rem;
+}

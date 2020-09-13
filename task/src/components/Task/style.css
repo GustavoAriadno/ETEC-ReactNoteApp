@@ -1,0 +1,30 @@
+.card-task{
+	padding: 0px 15px 10px;
+	box-shadow: -2px -2px 6px rgba(101, 101, 101, 0.25),
+				2px 2px 6px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	margin: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.status{
+	height: 5px;
+	background-color: #373737;
+	border-radius: 10px;
+}
+
+.status span{
+	height: 100%;
+	background-color: #44D420;
+	display: block;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+	0px 0px 10px #44D420;
+	border-radius: 10px;
+}
+
+.task-actions{
+	display: flex;
+	
+}
