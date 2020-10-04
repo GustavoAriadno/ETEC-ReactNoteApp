@@ -10,6 +10,8 @@ class Projects extends Component {
 		}
 	}
 	handleClick(e){
+		// let project = e.target.innerHTML
+		// if (project === '{todos}') project = ''
 		this.props.filter(e.target.innerHTML)
 	}
 
@@ -18,6 +20,7 @@ class Projects extends Component {
 			<>
 				<h3>Projetos</h3>
 				<ul>
+					{/* <li>(todos)</li> */}
 					{this.props.projects.map(project =>
 						<li onClick={this.handleClick.bind(this)}>{project.name}</li>
 					)}

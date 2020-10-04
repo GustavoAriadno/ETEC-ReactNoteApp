@@ -1,0 +1,6 @@
+# GET http://localhost:8000/task
+POST http://localhost:8000/task
+Content-Type: application/json
+{
+	"title": "atarefar"
+}
