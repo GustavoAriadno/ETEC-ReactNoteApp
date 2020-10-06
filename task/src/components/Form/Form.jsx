@@ -6,6 +6,7 @@ class Form extends Component {
 	constructor() {
 		super()
 		this.state = {
+			id: 0,
 			title: "",
 			description: "",
 			status: 0,
@@ -41,7 +42,8 @@ class Form extends Component {
 						onChange={this.handleChangeDescription.bind(this)}
 					/>
 					<select onChange={this.handleChangeProject.bind(this)}>
-						{this.props.projects.map(project => <option>{project.name}</option>)}
+						{this.props.projects.map(project =>
+							<option key={project.name} >{project.name}</option>)}
 					</select>
 					<button>Salvar</button>
 				</form>

@@ -10,9 +10,9 @@ class Projects extends Component {
 		}
 	}
 	handleClick(e){
-		// let project = e.target.innerHTML
-		// if (project === '{todos}') project = ''
-		this.props.filter(e.target.innerHTML)
+		let project = e.target.innerHTML
+		if (project === '(todos)') project = ''
+		this.props.filter(project)
 	}
 
 	render() {
@@ -20,9 +20,9 @@ class Projects extends Component {
 			<>
 				<h3>Projetos</h3>
 				<ul>
-					{/* <li>(todos)</li> */}
+					<li onClick={this.handleClick.bind(this)}>(todos)</li>
 					{this.props.projects.map(project =>
-						<li onClick={this.handleClick.bind(this)}>{project.name}</li>
+						<li key={project.name} onClick={this.handleClick.bind(this)}>{project.name}</li>
 					)}
 				</ul>
 				<input type="text" placeholder="Adcionar projeto" onKeyPress={this.handleKeyPress.bind(this)}
