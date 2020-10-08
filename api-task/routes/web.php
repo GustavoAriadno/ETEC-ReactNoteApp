@@ -5,6 +5,10 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/task', "TaskController@index");
-
-$router->post('/task', "TaskController@store");
+$router->group(['prefix' => 'task'], function () use ($router){
+	$router->get('', "TaskController@index");
+	$router->post('', "TaskController@store");
+	$router->get('{id}', "TaskController@show");
+	$router->delete('{id}', "TaskController@destroy");
+	$router->put('{id}', "TaskController@update");
+});

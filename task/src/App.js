@@ -16,6 +16,15 @@ class App extends Component {
 			],
 			filter: ''
 		}
+
+		fetch("http://localhost:8000/task")
+		.then(r => {
+			r.json()
+			.then((task) => {
+				console.log(task)
+				// this.setState({tasks: task})
+			})
+		})
 	}
 
 	addTask(task) {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class Projects extends Component {
-	state = { }
 
 	handleKeyPress(e){
 		if (e.key === "Enter"){
@@ -20,12 +19,22 @@ class Projects extends Component {
 			<>
 				<h3>Projetos</h3>
 				<ul>
-					<li onClick={this.handleClick.bind(this)}>(todos)</li>
+					<li
+						onClick={this.handleClick.bind(this)}>
+						(todos)
+					</li>
 					{this.props.projects.map(project =>
-						<li key={project.name} onClick={this.handleClick.bind(this)}>{project.name}</li>
+						<li
+							key={project.name}
+							onClick={this.handleClick.bind(this)}>
+							{project.name}
+						</li>
 					)}
 				</ul>
-				<input type="text" placeholder="Adcionar projeto" onKeyPress={this.handleKeyPress.bind(this)}
+				<input
+					type="text"
+					placeholder="Adcionar projeto"
+					onKeyPress={this.handleKeyPress.bind(this)}
 				/>
 			</>
 		);
