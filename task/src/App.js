@@ -4,6 +4,8 @@ import Task from './components/Task/TaskFunc';
 import Form from './components/Form/FormFunc';
 import Projects from './components/Projects/Projects';
 
+import axios from "axios";
+
 class App extends Component {
 
 	constructor() {
@@ -16,20 +18,22 @@ class App extends Component {
 			],
 			filter: ''
 		}
-
-		fetch("http://localhost:8000/task")
-		.then(r => {
-			r.json()
-			.then((task) => {
-				console.log(task)
-				// this.setState({tasks: task})
-			})
-		})
 	}
 
+	componentDidMount() {
+		axios.get("http://localhost:8000/task")
+		.then(response => this.setState({tasks: response.data}))
+
+		// fetch("http://localhost:8000/task")
+		// .then(response => {
+		// 	response.json().then((task) => {
+		// 		this.setState({tasks: task})
+		// 	})
+		// })
+	}
 	addTask(task) {
-		task.id = Date.now()
-		this.setState({ tasks: [...this.state.tasks, task] })
+		axios.post("http://localhost:8000/task", task)
+		.then(response => this.setState({tasks: response.data}))
 	}
 
 	addProject(project) {
@@ -37,30 +41,39 @@ class App extends Component {
 	}
 
 	deleteTask(id) {
-		let newTasks = this.state.tasks
-		const index = newTasks.findIndex(task => task.id === id)
-		newTasks.splice(index, 1)
-		this.setState({tasks: newTasks})
+		axios.delete("http://localhost:8000/task/" + id)
+		.then(response => this.setState({tasks: response.data}))
+
+		// let newTasks = this.state.tasks
+		// const index = newTasks.findIndex(task => task.id === id)
+		// newTasks.splice(index, 1)
+		// this.setState({tasks: newTasks})
 	}
 
 	increment(id) {
-		let newTasks = this.state.tasks
-		const index = newTasks.findIndex(task => task.id === id)
-		let task = newTasks[index]
-		task.status += 10
-		if (task.status > 100) task.status = 100
-		newTasks.splice(index, 1, task)
-		this.setState({tasks: newTasks})
+		axios.get("http://localhost:8000/task/increment/" + id)
+		.then(response => this.setState({tasks: response.data}))
+
+		// let newTasks = this.state.tasks
+		// const index = newTasks.findIndex(task => task.id === id)
+		// let task = newTasks[index]
+		// task.status += 10
+		// if (task.status > 100) task.status = 100
+		// newTasks.splice(index, 1, task)
+		// this.setState({tasks: newTasks})
 	}
 
 	decrement(id) {
-		let newTasks = this.state.tasks
-		const index = newTasks.findIndex(task => task.id === id)
-		let task = newTasks[index]
-		task.status -= 10
-		if (task.status < 0) task.status = 0
-		newTasks.splice(index, 1, task)
-		this.setState({tasks: newTasks})
+		axios.get("http://localhost:8000/task/decrement/" + id)
+		.then(response => this.setState({tasks: response.data}))
+
+		// let newTasks = this.state.tasks
+		// const index = newTasks.findIndex(task => task.id === id)
+		// let task = newTasks[index]
+		// task.status -= 10
+		// if (task.status < 0) task.status = 0
+		// newTasks.splice(index, 1, task)
+		// this.setState({tasks: newTasks})
 	}
 	filter(project) {
 		this.setState({filter: project})

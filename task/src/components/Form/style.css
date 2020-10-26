@@ -3,19 +3,6 @@
 	flex-direction: column;
 }
 
-.form input[type="text"], textarea, button {
-	outline: none;
-	font-size: 1.5rem;
-	background-color: transparent;
-	padding: .5rem;
-	color: var(--font-color);
-	margin: 1rem;
-	border: none;
-	box-shadow: inset -4px -4px 8px rgba(82, 82, 82, 0.25),
-				inset 4px 4px 8px rgba(0, 0, 0, 0.25);
-	border-radius: 10px;
-}
-
 .form textarea {
 	resize: vertical;
 	max-height: 7rem;
