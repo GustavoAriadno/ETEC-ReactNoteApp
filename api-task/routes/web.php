@@ -6,7 +6,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'task'], function () use ($router){
-	$router->get('', "TaskController@index");
+	$router->get('', ['middleware' => 'auth', 'uses' => "TaskController@index"]);
 	$router->post('', "TaskController@store");
 	$router->get('{id}', "TaskController@show");
 	$router->delete('{id}', "TaskController@destroy");
@@ -14,3 +14,5 @@ $router->group(['prefix' => 'task'], function () use ($router){
 	$router->get('increment/{id}', "TaskController@increment");
 	$router->get('decrement/{id}', "TaskController@decrement");
 });
+
+$router->get('/login', "LoginController@login");
